@@ -2,10 +2,10 @@
   "name": "gql.v.2",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "index.ts",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "server": "nodemon -e js,json,graphql"
+    "server": "ts-node-dev --respawn --transpile-only index.ts"
   },
   "keywords": [],
   "author": "",
@@ -13,7 +13,12 @@
   "dependencies": {
     "apollo-server": "^3.13.0",
     "apollo-server-core": "^3.13.0",
-    "graphql": "^16.8.1",
-    "nodemon": "^3.0.1"
+    "graphql": "^16.8.1"
+  },
+  "devDependencies": {
+    "@types/node": "^20.10.1",
+    "ts-node": "^10.9.1",
+    "ts-node-dev": "^2.0.0",
+    "typescript": "^5.3.2"
   }
 }
