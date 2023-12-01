@@ -1,4 +1,4 @@
-import {gql} from 'apollo-server'
+import { gql } from 'apollo-server';
 
 const typeDefs =  gql `
     type User {
@@ -8,8 +8,18 @@ const typeDefs =  gql `
         password: String
         profilpic_path: String
     }
-    type Query{
+
+    type Response {
+        statusCode: Int
+        message: String
+    }
+
+    type Query {
         Users : [User]
+    }
+
+    type Mutation {
+        SignIn(login: String email: String password: String) : Response!
     }
 `
 
