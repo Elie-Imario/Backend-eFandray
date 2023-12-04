@@ -1,6 +1,7 @@
-type Response = {
-    statusCode : number,
-    message: string
+type authResponse = {
+    status : number,
+    message: string,
+    data: authUser
 }
 
 type User = {
@@ -11,7 +12,15 @@ type User = {
     profilpic_path: string
 }
 
+type authUser = {
+    id: number
+    login: string
+    email: string
+    token?: string
+    profilpic_path: string
+}
+
 export {
-    Response,
+    authResponse,
     User
 }

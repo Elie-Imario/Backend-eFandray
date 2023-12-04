@@ -1,22 +1,22 @@
 import { users } from "../databases/userData.mockup"
-import { Response } from "../services/data/dataTypes"
+import { authResponse } from "../services/data/dataTypes"
 
-export const signInAction = (args: { login: string; email: string; password: string }) => {
-    console.log(args)
-    const resposne = {} as Response
-    const fetchedUser = users.find(user => (user.login.toLowerCase() === args.login?.toLowerCase() || user.email.toLowerCase() === args.email?.toLowerCase()))
+export const signInAction = (args: { auth_identification: string; password: string }) => {
+    const response = {} as authResponse
+    const fetchedUser = users.find(user => (user.login.toLowerCase() === args.auth_identification.toLowerCase() || user.email.toLowerCase() === args.auth_identification.toLowerCase()))
     if(fetchedUser){
         if(fetchedUser.password === args.password){
-            resposne.statusCode = 200
-            resposne.message = "Accès autorisé"
+            response.status = 200
+            response.message = "Accès autorisé"
+            response.data = fetchedUser
         } else{
-            resposne.statusCode = 401
-            resposne.message = "Accès non autorisé"
+            response.status = 401
+            response.message = "Accès non autorisé"
         }
     }else{
-        resposne.statusCode = 404
-        resposne.message = "User not found"
+        response.status = 404
+        response.message = "User not found"
     }
 
-    return resposne
+    return response
 }

@@ -6,7 +6,7 @@ const resolvers = {
         Users: () => users,
     },
     Mutation:{
-        SignIn: (parent: any, args: { login: string; email: string; password: string })=>{
+        SignIn: (parent: any, args: { auth_identification: string; password: string })=>{
             return signInAction(args)
         }
     }

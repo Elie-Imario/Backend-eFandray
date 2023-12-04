@@ -9,9 +9,19 @@ const typeDefs =  gql `
         profilpic_path: String
     }
 
-    type Response {
-        statusCode: Int
-        message: String
+    type authUser {
+        id: ID,
+        login: String
+        email: String
+        token: String
+        profilpic_path: String
+
+    }
+    
+    type authResponse {
+        status: Int!
+        message: String!
+        data: authUser
     }
 
     type Query {
@@ -19,9 +29,8 @@ const typeDefs =  gql `
     }
 
     type Mutation {
-        SignIn(login: String email: String password: String) : Response!
+        SignIn(auth_identification: String password: String) : authResponse!
     }
 `
-
 
 export default typeDefs
