@@ -7,6 +7,7 @@ const typeDefs =  gql `
         email: String
         password: String
         profilpic_path: String
+        onlineStatus: Boolean
     }
 
     type authUser {
@@ -15,7 +16,7 @@ const typeDefs =  gql `
         email: String
         token: String
         profilpic_path: String
-
+        onlineStatus: Boolean
     }
     
     type authResponse {
@@ -30,6 +31,10 @@ const typeDefs =  gql `
 
     type Mutation {
         SignIn(auth_identification: String password: String) : authResponse!
+    }
+
+    type Subscription {
+        newUserConnected: authUser!
     }
 `
 

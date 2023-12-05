@@ -10,6 +10,7 @@ type User = {
     email: string
     password: string
     profilpic_path: string
+    onlineStatus: boolean
 }
 
 type authUser = {
@@ -18,6 +19,7 @@ type authUser = {
     email: string
     token?: string
     profilpic_path: string
+    onlineStatus: boolean
 }
 
 export {

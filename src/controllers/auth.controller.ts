@@ -6,9 +6,10 @@ export const signInAction = (args: { auth_identification: string; password: stri
     const fetchedUser = users.find(user => (user.login.toLowerCase() === args.auth_identification.toLowerCase() || user.email.toLowerCase() === args.auth_identification.toLowerCase()))
     if(fetchedUser){
         if(fetchedUser.password === args.password){
+            const userConnected = {...fetchedUser, onlineStatus: true}
             response.status = 200
             response.message = "Accès autorisé"
-            response.data = fetchedUser
+            response.data = userConnected
         } else{
             response.status = 401
             response.message = "Accès non autorisé"
