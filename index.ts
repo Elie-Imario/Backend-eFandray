@@ -6,7 +6,7 @@ import { execute, subscribe } from 'graphql'
 import { pubsub } from "./src/graphQl/pubSub"
 import express from "express"
 import http from "http"
-import  typeDefs  from './src/graphQl/schema.graphql'
+import typeDefs from './src/graphQl/schema.graphql'
 import resolvers from './src/graphQl/resolvers'
 
 const PORT = 4000;

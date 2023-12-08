@@ -1,5 +1,5 @@
 import { signInAction } from "../controllers/auth.controller"
-import { users } from "../databases/userData.mockup"
+import { users } from "../databases/efandray.database.mockup"
 import { pubsub } from "./pubSub"
 
 
@@ -19,7 +19,7 @@ const resolvers = {
     Mutation:{
         SignIn: (parent: any, args: { auth_identification: string; password: string })=>{
             pubsub.publish(NEW_USER, {
-                newUserConnected:signInAction(args).data
+                newUserConnected: signInAction(args).data
             })
 
             return signInAction(args)

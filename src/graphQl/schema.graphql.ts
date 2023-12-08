@@ -2,21 +2,21 @@ import { gql } from 'apollo-server';
 
 const typeDefs =  gql `
     type User {
-        id: ID
+        userId: ID
         login: String
         email: String
         password: String
         profilpic_path: String
-        onlineStatus: Boolean
+        status: Boolean
     }
 
     type authUser {
-        id: ID,
+        userId: ID,
         login: String
         email: String
         token: String
         profilpic_path: String
-        onlineStatus: Boolean
+        status: Boolean
     }
     
     type authResponse {
