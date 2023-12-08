@@ -56,11 +56,21 @@ export const Messages = [
         type: "IMG",
         messageContent: "",
         messagefilepath: "/uploads/messages/image1.jpg",
-        createAt: "2023-01-02 14:30:00",
+        createAt: "2023-01-01 14:30:00",
         wasRead: true,
         FromUser: 2,
         chatId: 1,
-    }
+    },
+    {
+        messageId: 3,
+        type: "TXT",
+        messageContent: "WHATTTTT?",
+        messagefilepath: null,
+        createAt: "2023-01-01 15:00:00",
+        wasRead: false,
+        FromUser: 1,
+        chatId: 1,
+    },
 ]
 
 export const Discussions = [

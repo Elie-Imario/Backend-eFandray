@@ -2,6 +2,7 @@ import { gql } from 'apollo-server';
 
 const typeDefs =  gql `
     scalar Date
+
     type User {
         userId: ID
         login: String
@@ -9,8 +10,8 @@ const typeDefs =  gql `
         password: String
         profilpic_path: String
         status: Boolean
-        messages: [Message]
-        chats:[Chat]
+        messagesPosted: [Message]
+        chats: [Chat]
     }
 
     type authUser {
@@ -30,8 +31,7 @@ const typeDefs =  gql `
     
     type Discussion {
         id: ID,
-        userId: Int!,
-        chatId: Int!,
+        User: [User],
         chat: Chat
     }
 
@@ -51,19 +51,19 @@ const typeDefs =  gql `
         messagefilepath: String,
         createAt: Date,
         wasRead: Boolean,
-        FromUser: Int!,
-        chatId: Int!,
+        FromUser: User,
+        chat: Chat,
     }
 
     enum ChatType {
-        Group
-        Private
+        GROUP
+        PRIVATE
     }    
 
     enum MsgType {
-        Text,
-        Image,
-        File
+        TXT,
+        IMG,
+        FILE
     }
 
     type Query {
