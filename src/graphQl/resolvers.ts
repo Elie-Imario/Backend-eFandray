@@ -1,11 +1,12 @@
-import { pubsub } from "./pubSub"
+import { pubsub } from "./pubSub";
+import { User } from "../services/data/dataTypes";
 import { dateScalar } from '../services/scalar/dateScalar';
 import { getUserById } from "../controllers/user.controller";
 import { getDiscussionByUser } from "../controllers/discussion.controller"
 import { signInAction } from "../controllers/auth.controller"
 import { users } from "../databases/efandray.database.mockup"
 import { findMessagesByUserId } from "../controllers/message.controller";
-import { User } from "../services/data/dataTypes";
+import { findChatByUserId } from "../controllers/chat.controller";
 
 
 
@@ -48,6 +49,9 @@ const resolvers = {
     User:{
         messagesPosted: (parent:User)=>{
             return findMessagesByUserId(parent)
+        },
+        chats: (parent:User)=>{
+            return findChatByUserId(parent)
         }
     }
 }

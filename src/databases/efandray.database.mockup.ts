@@ -28,15 +28,21 @@ export const users = [
 export const Chats = [
     {
         chatId: 1,
-        chatType: "individual",
+        chatType: "PRIVATE",
         chatName: "",
         nbUserSubscribed: 2
     },
     {
         chatId: 2,
-        chatType: "group",
+        chatType: "GROUP",
         chatName: "Development Team",
         nbUserSubscribed: 3
+    },
+    {
+        chatId: 3,
+        chatType: "GROUP",
+        chatName: "Team Tetsuya",
+        nbUserSubscribed: 1
     }
 ]
 
@@ -98,6 +104,11 @@ export const Discussions = [
         id: 5,
         userId: 3,
         chatId: 2
+    },
+    {
+        id: 6,
+        userId: 2,
+        chatId: 3
     },
 ]
 
