@@ -25,8 +25,16 @@ const typeDefs =  gql `
         data: authUser
     }
 
+    
+    type Discussion {
+        id: ID,
+        userId: Int!,
+        chatId: Int!
+    }
+
     type Query {
-        Users : [User]
+        Users : [User],
+        findDiscusssionsByUser(userId: Int!): [Discussion]
     }
 
     type Mutation {

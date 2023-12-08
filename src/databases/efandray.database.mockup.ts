@@ -43,7 +43,7 @@ export const Chats = [
 export const Messages = [
     {
         messageId: 1,
-        type: "text",
+        type: "TXT",
         messageContent: "Lorem Ipsum dolor?",
         messagefilepath: null,
         createAt: "2023-01-01 12:00:00",
@@ -53,7 +53,7 @@ export const Messages = [
     },
     {
         messageId: 2,
-        type: "image",
+        type: "IMG",
         messageContent: "",
         messagefilepath: "/uploads/messages/image1.jpg",
         createAt: "2023-01-02 14:30:00",

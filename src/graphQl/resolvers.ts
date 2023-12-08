@@ -1,4 +1,5 @@
 import { signInAction } from "../controllers/auth.controller"
+import { getDiscussionByUser } from "../controllers/discussion.controller"
 import { users } from "../databases/efandray.database.mockup"
 import { pubsub } from "./pubSub"
 
@@ -14,6 +15,9 @@ const resolvers = {
 
     Query:{
         Users: () => users,
+        findDiscusssionsByUser: (parent: any, args:{userId: number})=>{
+            return getDiscussionByUser(args)
+        }
     },
 
     Mutation:{
