@@ -37,6 +37,7 @@ type Message =
     messagefilepath?: string,
     createAt: Date,
     wasRead: boolean,
+    ToUser: number,
     FromUser: number,
     chatId: number,
 }

@@ -7,8 +7,6 @@ export const findChatByUserId = (args:{userId:number})=>{
     const fetchedChat = Chats.filter(chat => {
         return fetchedDiscussions.indexOf(chat.chatId) !== -1
     })
-
-    console.log(fetchedChat)
-
+    
     return fetchedChat
 }

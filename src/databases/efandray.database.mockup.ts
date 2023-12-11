@@ -55,6 +55,7 @@ export const Messages = [
         createAt: "2023-01-01 12:00:00",
         wasRead: false,
         FromUser: 1,
+        ToUser: 2,
         chatId: 1,
     },
     {
@@ -65,6 +66,7 @@ export const Messages = [
         createAt: "2023-01-01 14:30:00",
         wasRead: true,
         FromUser: 2,
+        ToUser: 1,
         chatId: 1,
     },
     {
@@ -75,6 +77,7 @@ export const Messages = [
         createAt: "2023-01-01 15:00:00",
         wasRead: false,
         FromUser: 1,
+        ToUser: 2,
         chatId: 1,
     },
 ]

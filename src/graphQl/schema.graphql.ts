@@ -52,6 +52,7 @@ const typeDefs =  gql `
         createAt: Date,
         wasRead: Boolean,
         FromUser: User,
+        ToUser: User,
         chat: Chat,
     }
 
