@@ -69,8 +69,10 @@ const typeDefs =  gql `
 
     type Query {
         Users : [User],
+        Messages: [Message],
         findUserById(userId: Int!): User
         findDiscusssionsByUser(userId: Int!): [Discussion]
+
     }
 
     type Mutation {
