@@ -1,6 +1,11 @@
 import { Chats, users } from "../databases/efandray.database.mockup"
 import { getDiscussionByChat, getDiscussionByUser } from "./discussion.controller"
 
+
+export const findChatById = (args:{chatId:number})=>{
+    return Chats.filter(chat => chat.chatId === args.chatId)
+}
+
 export const findChatByUserId = (args:{userId:number})=>{
     const fetchedDiscussions = getDiscussionByUser(args).map(discussion => discussion.chatId)
     return Chats.filter(chat => fetchedDiscussions.indexOf(chat.chatId) !== -1)

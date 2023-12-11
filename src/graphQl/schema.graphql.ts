@@ -32,7 +32,7 @@ const typeDefs =  gql `
     type Discussion {
         id: ID,
         userId: Int!,
-        chatId: Int!
+        chat: [Chat]
     }
 
     type Chat {

@@ -6,7 +6,7 @@ import { getDiscussionByUser } from "../controllers/discussion.controller"
 import { signInAction } from "../controllers/auth.controller"
 import { Chats, Messages, users } from "../databases/efandray.database.mockup"
 import { findChat, findMessageOWner, findMessagesByUserId, findReceiverMsg } from "../controllers/message.controller";
-import { findChatByUserId, findSubscribedUser } from "../controllers/chat.controller";
+import { findChatById, findChatByUserId, findSubscribedUser } from "../controllers/chat.controller";
 
 
 
@@ -70,6 +70,15 @@ const resolvers = {
     Chat:{
         usersSubscribed: (parent:Chat)=>{
             return findSubscribedUser(parent)
+        }
+    },
+    //RELATION
+    /**
+     * Relation many-to-many[]
+     */
+    Discussion:{
+        chat: (parent:Chat)=>{
+            return findChatById(parent)
         }
     }
 }
