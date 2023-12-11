@@ -1,6 +1,10 @@
-import { Chats, Messages, users } from "../databases/efandray.database.mockup"
+import { Messages, users } from "../databases/efandray.database.mockup"
 
-export const findMessagesByUserId = (args:{userId:number})=>{
+export const findMessageById = (args:{messageId: number})=>{
+    return Messages.filter(message => message.messageId === args.messageId)
+}
+
+export const findMessagesByUserId = (args:{userId: number})=>{
     return Messages.filter(message => message.FromUser === args.userId)
 }
 
