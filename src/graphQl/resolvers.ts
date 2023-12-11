@@ -4,7 +4,7 @@ import { dateScalar } from '../services/scalar/dateScalar';
 import { getUserById } from "../controllers/user.controller";
 import { getDiscussionByUser } from "../controllers/discussion.controller"
 import { signInAction } from "../controllers/auth.controller"
-import { Chats, Messages, users } from "../databases/efandray.database.mockup"
+import { Chats, Discussions, Messages, users } from "../databases/efandray.database.mockup"
 import { findMessageOWner, findMessagesByUserId, findReceiverMsg, getChatMessages } from "../controllers/message.controller";
 import { findChatById, findChatByUserId, findSubscribedUser } from "../controllers/chat.controller";
 
@@ -25,6 +25,7 @@ const resolvers = {
         Users: () => users,
         Messages: ()=> Messages,
         Chats: ()=> Chats, 
+        Discussions: ()=> Discussions,
         findUserById: (parent: any, args:{userId: number})=>{
             return getUserById(args)
         },

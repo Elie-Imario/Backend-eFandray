@@ -68,9 +68,10 @@ const typeDefs =  gql `
     }
 
     type Query {
-        Users : [User],
-        Messages: [Message],
+        Users : [User]
+        Messages: [Message]
         Chats: [Chat]
+        Discussions: [Discussion]
         findUserById(userId: Int!): User
         findDiscusssionsByUser(userId: Int!): [Discussion]
 
