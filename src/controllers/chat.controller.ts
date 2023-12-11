@@ -3,7 +3,7 @@ import { getDiscussionByChat, getDiscussionByUser } from "./discussion.controlle
 
 
 export const findChatById = (args:{chatId:number})=>{
-    return Chats.filter(chat => chat.chatId === args.chatId)
+    return Chats.find(chat => chat.chatId === args.chatId)
 }
 
 export const findChatByUserId = (args:{userId:number})=>{

@@ -5,7 +5,7 @@ import { getUserById } from "../controllers/user.controller";
 import { getDiscussionByUser } from "../controllers/discussion.controller"
 import { signInAction } from "../controllers/auth.controller"
 import { Chats, Messages, users } from "../databases/efandray.database.mockup"
-import { findChat, findMessageOWner, findMessagesByUserId, findReceiverMsg } from "../controllers/message.controller";
+import { findMessageOWner, findMessagesByUserId, findReceiverMsg, getChatMessages } from "../controllers/message.controller";
 import { findChatById, findChatByUserId, findSubscribedUser } from "../controllers/chat.controller";
 
 
@@ -64,12 +64,15 @@ const resolvers = {
             return findReceiverMsg(parent)
         },
         chat: (parent:Message)=>{
-            return findChat(parent)
+            return findChatById(parent)
         },
     },
     Chat:{
         usersSubscribed: (parent:Chat)=>{
             return findSubscribedUser(parent)
+        },
+        message: (parent:Chat)=>{
+            return getChatMessages(parent)
         }
     },
     //RELATION

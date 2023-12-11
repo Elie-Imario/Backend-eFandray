@@ -12,6 +12,6 @@ export const findReceiverMsg = (args:{ToUser: number})=>{
     return users.find(user => user.userId === args.ToUser)
 }
 
-export const findChat = (args:{chatId: number})=>{
-    return Chats.find(chat => chat.chatId === args.chatId)
+export const getChatMessages = (args:{chatId: number})=>{
+    return Messages.filter(message => message.chatId === args.chatId)
 }
