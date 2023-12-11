@@ -1,12 +1,12 @@
 import { pubsub } from "./pubSub";
-import { Message, User } from "../services/data/dataTypes";
+import { Chat, Message, User } from "../services/data/dataTypes";
 import { dateScalar } from '../services/scalar/dateScalar';
 import { getUserById } from "../controllers/user.controller";
 import { getDiscussionByUser } from "../controllers/discussion.controller"
 import { signInAction } from "../controllers/auth.controller"
-import { Messages, users } from "../databases/efandray.database.mockup"
+import { Chats, Messages, users } from "../databases/efandray.database.mockup"
 import { findChat, findMessageOWner, findMessagesByUserId, findReceiverMsg } from "../controllers/message.controller";
-import { findChatByUserId } from "../controllers/chat.controller";
+import { findChatByUserId, findSubscribedUser } from "../controllers/chat.controller";
 
 
 
@@ -24,6 +24,7 @@ const resolvers = {
     Query:{
         Users: () => users,
         Messages: ()=> Messages,
+        Chats: ()=> Chats, 
         findUserById: (parent: any, args:{userId: number})=>{
             return getUserById(args)
         },
@@ -65,6 +66,11 @@ const resolvers = {
         chat: (parent:Message)=>{
             return findChat(parent)
         },
+    },
+    Chat:{
+        usersSubscribed: (parent:Chat)=>{
+            return findSubscribedUser(parent)
+        }
     }
 }
 
