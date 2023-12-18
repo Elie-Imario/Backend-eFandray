@@ -3,6 +3,11 @@ import { gql } from 'apollo-server';
 const typeDefs =  gql `
     scalar Date
 
+    input filterInput{
+        fields: String,
+        orderDirection: String
+    }
+
     type User {
         userId: ID
         login: String
@@ -40,7 +45,7 @@ const typeDefs =  gql `
         chatType: ChatType,
         chatName: String,
         nbUserSubscribed: Int!
-        message: [Message]
+        message(first:Int, orderBy:filterInput): [Message]
         usersSubscribed: [User!]
     }
 
@@ -73,7 +78,7 @@ const typeDefs =  gql `
         Chats: [Chat]
         Discussions: [Discussion]
         findUserById(userId: Int!): User
-        findDiscusssionsByUser(userId: Int!): [Discussion]
+        getUserChatHistory(userId: Int!): [Discussion]
 
     }
 

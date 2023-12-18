@@ -26,12 +26,8 @@ const resolvers = {
         Messages: ()=> Messages,
         Chats: ()=> Chats, 
         Discussions: ()=> Discussions,
-        findUserById: (parent: any, args:{userId: number})=>{
-            return getUserById(args)
-        },
-        findDiscusssionsByUser: (parent: any, args:{userId: number})=>{
-            return getDiscussionByUser(args)
-        }
+        findUserById: (parent: any, args:{userId: number}) => getUserById(args),
+        getUserChatHistory: (parent: any, args:{userId: number}) => getDiscussionByUser(args)
     },
 
     Mutation:{
@@ -72,8 +68,8 @@ const resolvers = {
         usersSubscribed: (parent:Chat)=>{
             return findSubscribedUser(parent)
         },
-        message: (parent:Chat)=>{
-            return getChatMessages(parent)
+        message: (parent:Chat, args:{first : number, orderBy:{fields: string, orderDirection: string}})=>{
+            return getChatMessages(parent, args)
         }
     },
     //RELATION
