@@ -26,6 +26,7 @@ type Chat = {
     chatId: number,
     chatType: ChatType,
     chatName: string,
+    chatGroupPic: string | null
     nbUserSubscribed: number
 }
 

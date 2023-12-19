@@ -1,20 +1,16 @@
 import { Messages, users } from "../databases/efandray.database.mockup"
 
-export const findMessageById = (args:{messageId: number})=>{
-    return Messages.filter(message => message.messageId === args.messageId)
-}
+export const findMessageById = (args:{messageId: number}) => Messages.filter(message => message.messageId === args.messageId)
 
-export const findMessagesByUserId = (args:{userId: number})=>{
-    return Messages.filter(message => message.FromUser === args.userId)
-}
+export const findMessagesByUserId = (args:{userId: number}) => Messages.filter(message => message.FromUser === args.userId)
 
-export const findMessageOWner = (args:{FromUser: number})=>{
-    return users.find(user => user.userId === args.FromUser)
-}
 
-export const findReceiverMsg = (args:{ToUser: number})=>{
-    return users.find(user => user.userId === args.ToUser)
-}
+export const findMessageOWner = (args:{FromUser: number}) => users.find(user => user.userId === args.FromUser)
+
+export const findReceiverMsg = (args:{ToUser: number}) => users.find(user => user.userId === args.ToUser)
+
+export const findChatMessage = (args:{chatId: number}) => Messages.filter(message => message.chatId === args.chatId)
+
 
 export const getChatMessages = (args:{chatId: number}, argsFilter:{first:number, orderBy:{fields: string, orderDirection: string}})=>{
     const chatMessagesFetched = Messages.filter(message => message.chatId === args.chatId)
@@ -28,7 +24,6 @@ export const getChatMessages = (args:{chatId: number}, argsFilter:{first:number,
                 }  
             }else if(argsFilter.orderBy.orderDirection === "DESC"){
                 for(let i = chatMessagesFetched.length-1; i>=chatMessagesFetched.length - argsFilter.first; i--){
-                    console.log(i, chatMessagesFetched[i])
                     ChatMessages.push(chatMessagesFetched[i])
                 }   
             }

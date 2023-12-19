@@ -44,6 +44,7 @@ const typeDefs =  gql `
         chatId: ID,
         chatType: ChatType,
         chatName: String,
+        chatGroupPic: String,
         nbUserSubscribed: Int!
         message(first:Int, orderBy:filterInput): [Message]
         usersSubscribed: [User!]
@@ -74,12 +75,12 @@ const typeDefs =  gql `
 
     type Query {
         Users : [User]
-        Messages: [Message]
+        findUserById(userId: Int!): User
         Chats: [Chat]
         Discussions: [Discussion]
-        findUserById(userId: Int!): User
-        getUserChatHistory(userId: Int!): [Discussion]
-
+        UserChatHistory(userId: Int!): [Discussion]
+        Messages: [Message]
+        ChatMessages(chatId: Int!): [Message]
     }
 
     type Mutation {

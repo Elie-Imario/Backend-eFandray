@@ -30,19 +30,29 @@ export const Chats = [
         chatId: 1,
         chatType: "PRIVATE",
         chatName: "",
+        chatGroupPic: null,
         nbUserSubscribed: 2
     },
     {
         chatId: 2,
         chatType: "GROUP",
-        chatName: "Development Team",
+        chatName: "Vegas",
+        chatGroupPic: "/public/images/vegas.jpg",
         nbUserSubscribed: 3
     },
     {
         chatId: 3,
         chatType: "GROUP",
         chatName: "Team Tetsuya",
-        nbUserSubscribed: 1
+        chatGroupPic: null,
+        nbUserSubscribed: 2
+    },
+    {
+        chatId: 4,
+        chatType: "PRIVATE",
+        chatName: "",
+        chatGroupPic: null,
+        nbUserSubscribed: 2
     }
 ]
 
@@ -112,6 +122,21 @@ export const Discussions = [
         id: 6,
         userId: 2,
         chatId: 3
+    },
+    {
+        id: 7,
+        userId: 3,
+        chatId: 3
+    },
+    {
+        id: 8,
+        userId: 1,
+        chatId: 4
+    },
+    {
+        id: 9,
+        userId: 3,
+        chatId: 4
     },
 ]
 

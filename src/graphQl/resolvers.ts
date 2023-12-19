@@ -5,7 +5,7 @@ import { getUserById } from "../controllers/user.controller";
 import { getDiscussionByUser } from "../controllers/discussion.controller"
 import { signInAction } from "../controllers/auth.controller"
 import { Chats, Discussions, Messages, users } from "../databases/efandray.database.mockup"
-import { findMessageOWner, findMessagesByUserId, findReceiverMsg, getChatMessages } from "../controllers/message.controller";
+import { findChatMessage, findMessageOWner, findMessagesByUserId, findReceiverMsg, getChatMessages } from "../controllers/message.controller";
 import { findChatById, findChatByUserId, findSubscribedUser } from "../controllers/chat.controller";
 
 
@@ -24,10 +24,11 @@ const resolvers = {
     Query:{
         Users: () => users,
         Messages: ()=> Messages,
-        Chats: ()=> Chats, 
+        Chats: () => Chats, 
         Discussions: ()=> Discussions,
         findUserById: (parent: any, args:{userId: number}) => getUserById(args),
-        getUserChatHistory: (parent: any, args:{userId: number}) => getDiscussionByUser(args)
+        UserChatHistory: (parent: any, args:{userId: number}) => getDiscussionByUser(args),
+        ChatMessages: (parent: any, args:{chatId: number}) => findChatMessage(args)
     },
 
     Mutation:{
