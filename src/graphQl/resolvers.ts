@@ -25,6 +25,7 @@ const resolvers = {
         Users: () => users,
         Messages: ()=> Messages,
         Chats: () => Chats, 
+        Chat: (parent: any, args:{chatId: number}) => findChatById(args),
         Discussions: ()=> Discussions,
         findUserById: (parent: any, args:{userId: number}) => getUserById(args),
         UserChatHistory: (parent: any, args:{userId: number}) => getDiscussionByUser(args),

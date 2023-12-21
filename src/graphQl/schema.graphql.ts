@@ -77,6 +77,7 @@ const typeDefs =  gql `
         Users : [User]
         findUserById(userId: Int!): User
         Chats: [Chat]
+        Chat(chatId: Int!): Chat
         Discussions: [Discussion]
         UserChatHistory(userId: Int!): [Discussion]
         Messages: [Message]
